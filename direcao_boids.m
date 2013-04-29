@@ -1,0 +1,15 @@
+function [ direcao ] = direcao_boids( nBoids )
+%VELOCIDADE_INICIAL Summary of this function goes here
+%   Detailed explanation goes here
+
+    %gera os ângulos iniciais para definir as direções de voo dos Boids. O
+    %valor do ângulo fica entre 0 e 360.
+    direcao = 360 * rand(1,nBoids);
+    
+    %converte para radianos os ângulos
+    for i = 1 : nBoids
+        direcao(i) = (direcao(i) * 3.14) / 180;
+    end
+
+end
+

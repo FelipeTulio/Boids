@@ -1,0 +1,37 @@
+function [ media_centro ] = coesao( posicoes_boids, nBoids, raioVisao, media_centro )
+%COESAO Summary of this function goes here
+
+       
+%     for i = 1 : nBoids
+%         
+          
+%         cont = i + 1;
+        aux = 0;
+           
+        cont = 1;
+        boid = round((10 * rand) +);
+        centro_massa = posicoes_boids(:,boid);
+        
+        while(cont <= nBoids)
+            ca = posicoes_boids(1,cont) - posicoes_boids(1,boid);
+            co = posicoes_boids(2,cont) - posicoes_boids(2,boid);
+            h = sqrt((ca * ca) + (co * co));
+
+            if(h < raioVisao)
+                 centro_massa(1,1) = centro_massa(1,1) + posicoes_boids(1,cont);
+                 centro_massa(2,1) = centro_massa(2,1) + posicoes_boids(2,cont);
+                 aux = aux + 1;
+            end
+            
+             cont = cont + 1;
+        end
+        if((aux ~= 0) && (aux >= 4))
+            media_centro(1,cont) = centro_massa(1,1) / aux;
+            media_centro(2,cont) = centro_massa(2,1) / aux;
+        end
+
+    end
+    
+
+% end
+
